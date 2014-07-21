@@ -76,7 +76,7 @@ public class MainActivity extends Activity {
     public void showInputDialog() {
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
-        alert.setTitle("Title");
+        alert.setTitle("Create New User");
         alert.setMessage("Enter Name : ");
 
         final EditText nameBox = new EditText(this);
@@ -93,7 +93,7 @@ public class MainActivity extends Activity {
 
                 users.add(user);
 
-                if(noUsersAlert.getVisibility() != View.GONE) {
+                if(noUsersAlert == null) {
                     linearLayout.setGravity(Gravity.NO_GRAVITY);
                     linearLayout.removeView(noUsersAlert);
                     linearLayout.removeView(sadFace);

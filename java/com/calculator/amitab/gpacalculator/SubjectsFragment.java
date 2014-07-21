@@ -165,6 +165,10 @@ public class SubjectsFragment extends Fragment {
         semester.setSgpa(SGPA);
         semester.setCreditsEarned(totalCredits);
 
+        semesterDataSource.open();
+        semesterDataSource.updateUserSGPA(semester);
+        semesterDataSource.close();
+
         setSGPA(SGPA);
     }
 
@@ -204,10 +208,6 @@ public class SubjectsFragment extends Fragment {
         int id = item.getItemId();
         if (id == R.id.action_calculate) {
             calculateSGPA();
-
-            semesterDataSource.open();
-            semesterDataSource.updateUserSGPA(semester);
-            semesterDataSource.close();
 
             return true;
         } else if (id == R.id.action_reload) {
